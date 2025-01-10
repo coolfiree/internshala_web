@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="post" action="login_submit">
-        Email : <input type="email" name="email"\>
-        Password : <input type="password" name="password"\>
-        <input type="submit">
-    </form>
-</body>
+<html>
+    <head>
+        <title>Login Form</title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form method="post" action="login_submit.php">
+            Email: <input type="text" name="email"/><br/><br/>
+            Password: <input type="password" name="password"/><br/><br/>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </body>
 </html>
