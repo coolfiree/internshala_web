@@ -23,7 +23,7 @@
 
     $row = mysqli_fetch_assoc($result);
     if ($row) {
-        echo "Hello " . $row['name'] . "<br/>";
+        echo "Hello " . $row['full_name'] . "<br/>";
     } else {
         echo "Login Failed<br/>";
     }
