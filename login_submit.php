@@ -5,24 +5,28 @@
     $db_name = "pglife";
 
     $conn = mysqli_connect($db_hostname, $db_username, $db_password, $db_name);
-
     if (!$conn) {
-        echo("Connection failed: " . mysqli_connect_error());
+        echo "Connection failed: " . mysqli_connect_error();
         exit;
     }
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
 
-    $sql = "SELECT full_name FROM users WHERE email = '$email' AND password = '$password'";
+    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+
     $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        echo "Welcome " . $row['full_name'];
-    } else {
-        echo "Invalid email or password";
+    if (!$result) {
+        echo "Error: " . mysqli_error($conn);
+        exit;
     }
-    mysqli_close($conn);
 
+    $row = mysqli_fetch_assoc($result);
+    if ($row) {
+        echo "Hello " . $row['name'] . "<br/>";
+    } else {
+        echo "Login Failed<br/>";
+    }
+
+    mysqli_close($conn);
 ?>
